@@ -392,7 +392,7 @@ The [access token](#get-an-access-token) should have the following scopes:
 <h5 class="code-snippet-title">Examples</h5>
 
 ```http
-DELETE https://{extension_url}/users/{user_id}/roles
+DELETE https://{extension_url}/users/{role_id}/roles
 Content-Type:   'application/json'
 Authorization:  'Bearer {access_token}'
 [ "{user_id}" ]
@@ -400,7 +400,7 @@ Authorization:  'Bearer {access_token}'
 
 ```shell
 curl --request DELETE \
-  --url 'https://{extension_url}/users/{user_id}/roles' \
+  --url 'https://{extension_url}/users/{role_id}/roles' \
   --header 'Authorization: Bearer {access_token}' \
   --header 'Content-Type: application/json' \
   --data '[ "{role_id}" ]'
