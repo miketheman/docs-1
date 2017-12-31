@@ -45,6 +45,15 @@ Use the following command to create the controller that will handle user logout:
 rails generate controller logout
 ```
 
+Once complete, add a new route to the logout path:
+
+```ruby
+# config/routes.rb
+
+  get '/logout' => 'logout#logout'
+
+```
+
 To clear out all the objects stored within the session, call the `reset_session` method within the `logout_controller/logout` method. [Learn more about `reset_session` here](http://api.rubyonrails.org/classes/ActionController/Base.html#M000668).
 
 ```ruby
@@ -82,6 +91,14 @@ module LogoutHelper
     hash.map { |k, v| "#{k}=#{URI.escape(v)}" unless v.nil? }.reject(&:nil?).join('&')
   end
 end
+```
+
+Anywhere you want to display a logout link, link to the route. Example of the Dashboard page:
+
+```erb
+# app/views/dashboard/show.html.erb
+
+<%= link_to 'Logout', { controller: 'logout', action: 'logout' }, { class: 'btn btn-success btn-lg' } %>
 ```
 
 ::: note
